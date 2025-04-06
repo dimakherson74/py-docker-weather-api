@@ -6,9 +6,9 @@ def get_weather(city: str = "Paris") -> None:
     api_key = os.getenv("API_KEY")
     if not api_key:
         raise Exception("API_KEY not set in environment variables!")
+    URL = "http://api.weatherapi.com/?"
 
-    url = (f"http: //api.weatherapi.com/v1/"
-           f"current.json?key={api_key}&q={city}&aqi=no")
+    url = f"{URL}/v1/current.json?key={api_key}&q={city}&aqi=no"
 
     response = requests.get(url)
     response.raise_for_status()
